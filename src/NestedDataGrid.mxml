@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+	xmlns:s="library://ns.adobe.com/flex/spark" 
+	xmlns:mx="library://ns.adobe.com/flex/mx"
+	creationComplete="readXML.send()" xmlns:components="components.*">
+	<fx:Declarations>
+		<s:HTTPService id="readXML"
+			url="model/meetings.xml" resultFormat="object"
+			result="readXML_resultHandler(event)"
+			fault="readXML_faultHandler(event)"/>
+	</fx:Declarations>
+	<s:layout>
+		<s:VerticalLayout/>
+	</s:layout>
+	<s:Panel id="meetingsPanel" title="Meetings"
+		width="600" height="500"
+		x="0" y="0">
+		<mx:DataGrid id="dg" x="10" y="10" dataProvider="{_dataForGrid}"
+			width="{meetingsPanel.width-40}" height="45%">
+			<mx:columns>
+				<components:NestedDataGridColumn headerText="Priority" nestedDataField="priority" width="60"/>
+				<components:NestedDataGridColumn headerText="Presenter name" nestedDataField="presenter.name" width="60"/>
+				<components:NestedDataGridColumn headerText="Presenter phone" nestedDataField="presenter.phone" width="90"/>
+				<components:NestedDataGridColumn headerText="Date" nestedDataField="date" width="110"/>
+				<components:NestedDataGridColumn headerText="Time" nestedDataField="time" width="70"/>
+				<components:NestedDataGridColumn headerText="Place" nestedDataField="place" width="70"/>
+			</mx:columns>
+		</mx:DataGrid>		
+	</s:Panel>
+	<fx:Script>
+		<![CDATA[
+			import mx.collections.ArrayCollection;
+			import mx.controls.Alert;
+			import mx.rpc.events.FaultEvent;
+			import mx.rpc.events.ResultEvent;
+			
+			[Bindable]
+			private var _dataForGrid:ArrayCollection;
+			
+			protected function readXML_resultHandler(event:ResultEvent):void
+			{
+				_dataForGrid = event.result.meetings.meeting;
+			}
+			
+			protected function readXML_faultHandler(event:FaultEvent):void
+			{
+				Alert.show("Error occured in getting string");
+			}	
+		]]>
+	</fx:Script>
+</s:Application>

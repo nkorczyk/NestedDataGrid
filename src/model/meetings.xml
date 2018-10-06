@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<meetings>
+  <meeting>
+    <priority>high</priority>
+    <presenter>
+      <name>Lisa Green</name>
+      <email>jdoe@company.com</email>
+      <phone>+330-7593</phone>
+    </presenter>
+    <date>12th July 2009</date>
+    <time>6:00 pm</time>
+    <place>Room 405</place>
+  </meeting>
+  <meeting>
+    <priority>medium</priority>
+    <presenter>
+      <name>Christopher Martin</name>
+      <email>cmartin@company.com</email>
+      <phone>+330-7553</phone>
+    </presenter>
+    <date>14th July 2009</date>
+    <time>11:00 am</time>
+    <place>Room 405</place>
+  </meeting>
+  <meeting>
+    <priority>high</priority>
+    <presenter>
+      <name>George Rodriguez</name>
+      <email>grodriguez@company.com</email>
+      <phone>+330-7502</phone>
+    </presenter>
+    <date>18th July 2009</date>
+    <time>10:00 am</time>
+    <place>Room 771</place>
+  </meeting>
+  <meeting>
+    <priority>high</priority>
+    <presenter>
+      <name>Jennifer Parker</name>
+      <email>jparker@company.com</email>
+      <phone>+330-5380</phone>
+    </presenter>
+    <date>20th August 2009</date>
+    <time>2:00 pm</time>
+    <place>Room 562</place>
+  </meeting>
+</meetings>
